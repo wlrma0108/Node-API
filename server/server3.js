@@ -25,25 +25,3 @@ session[randomInt] = {
 name,
 expires,
 };
-res.writeHead(302, {
-Location:'/',
-'Set-Cookie': `session=${randomInt}; Expires=${expires.to
-GMTString()}; HttpOnly; Path=/`,
-});
-res.end();
-} else if (cookies.session && session[cookies.session].expir
-es > new Date()) {
-res.writeHead(200, {'Content-Type':'text/html; charset=utf-8' });
-res.end(`${session[cookies.session].name}님 안녕하세요`);
-} else {
-fs.readFile('./server4.html', (err, data) => {
-if (err) {
-throw err;
-}
-res.end(data);
-});
-}
-})
-.listen(8084, () => {
-console.log('8084번 포트에서 서버 대기 중입니다!');
-});
