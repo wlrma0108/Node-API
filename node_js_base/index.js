@@ -8,3 +8,7 @@ if (str.length % 2) {
 }
 console.log(checkNumber(10));
 console.log(checkStringOddOrEven('hello'));
+
+module.exports = () => {
+    return'hello package';
+    };
